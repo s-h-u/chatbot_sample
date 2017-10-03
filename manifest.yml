@@ -1,0 +1,19 @@
+---
+declared-services:
+  Conversation-eg:
+    label: conversation
+    plan: free
+  Retrieve and Rank-go:
+    label: retrieve_and_rank
+    plan: standard
+applications:
+- name: chatbot-okayama_city
+  command: npm start
+  path: .
+  memory: 256M
+  instances: 1
+  services:
+  - Conversation-eg
+  - Retrieve and Rank-go
+  env:
+    NPM_CONFIG_PRODUCTION: false
